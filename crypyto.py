@@ -1,4 +1,5 @@
 """ Crypyto: Simple application for tracking cryptocurrency prices. """
+
 import sys
 
 from PyQt5.QtWidgets import QApplication
@@ -9,9 +10,9 @@ __version__ = '0.1'
 __author__ = 'Justin Schuster'
 
 def main():
+    ''' Main program loop. '''
     crypyto = QApplication(sys.argv)
     view = CrypytoUI()
-    view.show()
     sys.exit(crypyto.exec())
 
 if __name__ == '__main__':
