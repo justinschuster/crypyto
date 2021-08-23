@@ -1,3 +1,7 @@
+''' View elements.
+    TODO: Change file name
+'''
+
 from PyQt5.QtWidgets import QMainWindow, QWidget
 
 class CrypytoUI(QMainWindow):
