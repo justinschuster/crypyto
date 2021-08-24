@@ -1,8 +1,7 @@
 import pytest
 import pytestqt
-from datetime import datetime
 
-import cui.utils as utils
+from cui import utils
 
 def test_convertEpochToDatetimeType(): 
     timestamp = 154730073
