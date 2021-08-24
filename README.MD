@@ -1,8 +1,8 @@
-# CRYPTO-APP
+# Crypyto
 
-Linux desktop crytocurrency price tracking application.
+Allows you to monitor cryptocurrencies from your desktop.
 
-Built On
-    * Python 3
-    * PyQt5
-    * ccxt 1.55.31
+Dependencies:
+    - Python 3.8.10
+    - PyQt5 5.15.4
+    - ccxt 1.55.31
