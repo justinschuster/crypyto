@@ -1,11 +1,10 @@
 import sys
-from cui.main import CrypytoQt
+import cui.main as cui
 from PyQt5.QtWidgets import QApplication
-
 
 def main():
     app = QApplication(sys.argv)
-    view = CrypytoQt()
+    view = cui.CrypytoQt()
     view.show()
     sys.exit(app.exec())
 

@@ -1,4 +1,4 @@
 import datetime
 
 def convertEpochToDatetime(t):
-    return datetime.datetime.fromtimestamp(t/1000).strftime('%H')
+    return int(datetime.datetime.fromtimestamp(t/1000).strftime('%H'))

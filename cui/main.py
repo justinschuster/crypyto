@@ -19,8 +19,9 @@ class CrypytoQt(QMainWindow):
         super().__init__()
         try:
             self.setupUI()
-        except:
+        except Exception as e:
             print('error')
+            print(type(e))
 
     def setupUI(self) -> None:
         self.setupChart()
@@ -32,6 +33,6 @@ class CrypytoQt(QMainWindow):
         time = []
         price = []
         for i in chartData:
-            time.append(int(utils.convertEpochToDatetime(i[0])))
+            time.append(utils.convertEpochToDatetime(i[0]))
             price.append(i[1])
-        self.graphWidget.plot(time[0:12], price[0:12])
+        self.graphWidget.plot(time, price)
