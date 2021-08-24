@@ -1,19 +1,12 @@
-""" Crypyto: Simple application for tracking cryptocurrency prices. """
-
 import sys
-
 from PyQt5.QtWidgets import QApplication
-
-from view.mainview import CrypytoUI
-
-__version__ = '0.1'
-__author__ = 'Justin Schuster'
+from cui.main import CrypytoQt
 
 def main():
-    ''' Main program loop. '''
-    crypyto = QApplication(sys.argv)
-    view = CrypytoUI()
-    sys.exit(crypyto.exec())
+    app = QApplication(sys.argv)
+    view = CrypytoQt()
+    view.show()
+    sys.exit(app.exec())
 
 if __name__ == '__main__':
     main()
