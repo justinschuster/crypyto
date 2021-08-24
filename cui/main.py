@@ -1,14 +1,5 @@
-import sys
-import os
-import inspect # import workaround
 from PyQt5.QtWidgets import QMainWindow
 from pyqtgraph import PlotWidget, plot
-
-### Importing from parent folder workaround
-### TODO: Fix this without this workaround
-currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.getfile)))
-parentdir = os.path.dirname(currentdir)
-sys.path.insert(0, parentdir)
 
 import clib.tickers as tickers
 import cui.utils as utils
