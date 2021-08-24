@@ -1,6 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QApplication
 from cui.main import CrypytoQt
+from PyQt5.QtWidgets import QApplication
+
 
 def main():
     app = QApplication(sys.argv)
