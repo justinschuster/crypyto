@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QApplication
 
 def main():
     app = QApplication(sys.argv)
-    view = cui.CrypytoQt()
+    view = cui.CrypytoMainWindow()
     view.show()
     sys.exit(app.exec())
 

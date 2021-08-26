@@ -6,14 +6,11 @@ import pyqtgraph as pg
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-from PyQt5 import uic
 
 import clib.tickers as tickers
-import cui.utils as utils
-
 from cui.items import DateAxisItem
            
-class CrypytoQt(QMainWindow):
+class CrypytoMainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
 
@@ -39,13 +36,8 @@ class CrypytoQt(QMainWindow):
         axis = DateAxisItem(orientation='bottom')
         axis.attachToPlotItem(self.plotWidget.getPlotItem())
 
-        chartData = tickers.fetchChartData('BTC/USD', '1m')
-        self.time_data = []
-        self.price_data = []
-        for i in chartData:
-            self.time_data.append(i[0]/1000)
-            self.price_data.append(i[1])
+        self.time_data, self.price_data = tickers.fetchChartData('BTC/USD', '1d')
 
         self.plotWidget.plot(x=self.time_data, y=self.price_data)
         self.plotWidget.getPlotItem().setTitle('BTC/USD')
-        self.plotWidget.getPlotItem().showGrid(x=True, y=True, alpha=0.2)
+        self.plotWidget.getPlotItem().showGrid(x=True, y=True, alpha=0.2) 
