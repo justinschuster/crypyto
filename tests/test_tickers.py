@@ -6,7 +6,7 @@ time_frames = [
     '1m',
     '1h',
     '1d',
-    '1m'
+    #'1M' Giving KeyError
     #'1y' Giving KeyError
 ]
 
