@@ -1,3 +1,5 @@
+import sys
+
 from PyQt5.QtWidgets import QLabel, QMainWindow
 from pyqtgraph import PlotWidget, AxisItem
 import pyqtgraph as pg
@@ -18,8 +20,8 @@ class CrypytoMainWindow(QMainWindow):
             self.setupLayout()
             self.setupUI()
         except Exception as e:
-            print('error')
-            print(e)
+            print('Failed to create MainWindow:', str(e)) 
+            sys.exit(-1)
 
     def setupLayout(self):
         #self.grid = QGridLayout()
@@ -36,8 +38,7 @@ class CrypytoMainWindow(QMainWindow):
         axis = DateAxisItem(orientation='bottom')
         axis.attachToPlotItem(self.plotWidget.getPlotItem())
 
-        self.time_data, self.price_data = tickers.fetchChartData('BTC/USD', '1d')
-
+        self.time_data, self.price_data = tickers.fetchChartData('BTC/USD', '1m')
         self.plotWidget.plot(x=self.time_data, y=self.price_data)
         self.plotWidget.getPlotItem().setTitle('BTC/USD')
-        self.plotWidget.getPlotItem().showGrid(x=True, y=True, alpha=0.2) 
+        self.plotWidget.getPlotItem().showGrid(x=True, y=True, alpha=0.2)  
