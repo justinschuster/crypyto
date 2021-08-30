@@ -10,6 +10,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
 import clib.tickers as tickers
+import cui.widgets as widgets
 from cui.items import DateAxisItem
            
 class CrypytoMainWindow(QMainWindow):
@@ -27,32 +28,25 @@ class CrypytoMainWindow(QMainWindow):
             print('Failed to create MainWindow:', str(e)) 
             sys.exit(-1)
 
-    def setupLayout(self):
-        pass
-
     def setupUI(self) -> None:
         self.setupChart()
 
     def setupChart(self) -> None:
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
-
         layout = QHBoxLayout()  
 
+        # Taskbar
         bar = self.menuBar()
         file = bar.addMenu("File")
         file.addAction('About')
         file.addAction('Quit')
 
-        self.plotWidget = PlotWidget()
+        # Chart 
+        self.plotWidget = widgets.createPlotWidget()
         layout.addWidget(self.plotWidget)
-        axis = DateAxisItem(orientation='bottom')
-        axis.attachToPlotItem(self.plotWidget.getPlotItem())
-        self.time_data, self.price_data = tickers.fetchChartData('BTC/USD', '1m')
-        self.plotWidget.plot(x=self.time_data, y=self.price_data)
-        self.plotWidget.getPlotItem().setTitle('BTC/USD')
-        self.plotWidget.getPlotItem().showGrid(x=True, y=True, alpha=0.2)     
 
+        # Watch List
         self.items = QDockWidget("Watch List", self)
         self.listWidget = QListWidget()
         self.listWidget.addItem('item1')
