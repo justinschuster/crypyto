@@ -47,13 +47,8 @@ class CrypytoMainWindow(QMainWindow):
         layout.addWidget(self.plotWidget)
 
         # Watch List
-        self.items = QDockWidget("Watch List", self)
-        self.listWidget = QListWidget()
-        self.listWidget.addItem('item1')
-        self.listWidget.addItem('item2')
-        self.items.setWidget(self.listWidget)
-        self.items.setFloating(False)
+        self.watch = widgets.createWatchList(self) 
 
         self.setCentralWidget(self.plotWidget)
-        self.addDockWidget(Qt.RightDockWidgetArea, self.items)
+        self.addDockWidget(Qt.RightDockWidgetArea, self.watch)
         self.setLayout(layout)

@@ -19,6 +19,12 @@ def createTaskBar():
     """ Setup task bar. """
     pass
 
-def createWatchList(): 
+def createWatchList(mainWindow): 
     """ Setup watch list. """
-    pass
+    watch = QDockWidget("Watch List", mainWindow)
+    listWidget = QListWidget()
+    listWidget.addItem('item1')
+    listWidget.addItem('item2')
+    watch.setWidget(listWidget)
+    watch.setFloating(False) 
+    return watch
